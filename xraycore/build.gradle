@@ -1,0 +1,29 @@
+apply from: '../constants.gradle'
+apply plugin: 'com.android.library'
+
+// Wrapper module for the Xray-core gomobile bindings (AndroidLibXrayLite).
+// The upstream aar is unpacked (see download_xray.sh) because Android library
+// modules cannot consume local aar files directly:
+//   libs/libv2ray-classes.jar  - Java bindings (go.Seq, libv2ray.*)
+//   src/main/jniLibs/          - libgojni.so for all ABIs
+//   src/main/assets/           - geoip.dat / geosite.dat
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+
+        consumerProguardFiles 'proguard-libv2ray.txt'
+    }
+}
+
+dependencies {
+    api files('libs/libv2ray-classes.jar')
+}
