@@ -69,8 +69,8 @@ project.ext {
     amazonExoplayerVersion = '2.10.6'
     amazonExoplayerJitpackVersion = 'amazon~r2.12.1-SNAPSHOT'
     // playServicesCronetVersion = '18.0.1'
-    // cronetApiVersion = '119.6045.31' // for testing
-    cronetApiVersion = '105.5195.68' // latest version with Android 7.0 support
+    // cronetApiVersion = '119.6045.31' // for testing (latest with Java 14 support) https://mvnrepository.com/artifact/org.chromium.net/cronet-api
+    cronetApiVersion = '105.5195.68' // latest version with Android 4.4 support
     // cronetApiVersion = '98.4758.101' // fast too
     // cronetApiVersion = '75.3770.101' // the fastest one (best choice)
     cronetOkHttpVersion = '0.1.0'
