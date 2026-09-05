@@ -1,0 +1,21 @@
+# v2ray-java core classes
+-keep class com.v2ray.** { *; }
+
+# Netty runtime reflection
+-keep class io.netty.** { *; }
+-dontwarn io.netty.**
+
+# Jackson model members
+-keepclassmembers class com.v2ray.config.model.** {
+    <fields>;
+    <methods>;
+}
+-dontwarn com.fasterxml.jackson.**
+
+# BouncyCastle crypto
+-keep class org.bouncycastle.** { *; }
+-dontwarn org.bouncycastle.**
+
+# slf4j / logback
+-dontwarn org.slf4j.**
+-dontwarn ch.qos.logback.**
