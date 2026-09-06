@@ -38,6 +38,10 @@ with zipfile.ZipFile(dst, 'w', zipfile.ZIP_DEFLATED) as zout:
         # logback is desktop-only logging; on Android slf4j degrades to NOP.
         if n.startswith('org/slf4j/') or n.startswith('ch/qos/logback/'):
             continue
+        # byte-buddy is an optional netty-all dependency unused at runtime;
+        # META-INF/native holds netty's native transports (we use pure NIO).
+        if n.startswith('net/bytebuddy/') or n.startswith('META-INF/native/'):
+            continue
         zout.writestr(item, zin.read(n))
 zin.close()
 shutil.move(dst, src)

@@ -4,6 +4,8 @@
 # Netty runtime reflection
 -keep class io.netty.** { *; }
 -dontwarn io.netty.**
+# byte-buddy is stripped from the fat jar (optional netty dep, unused at runtime)
+-dontwarn net.bytebuddy.**
 
 # Jackson model members
 -keepclassmembers class com.v2ray.config.model.** {
