@@ -138,8 +138,6 @@ project.ext {
 
     phoenixVersion = '3.0.0'
     netcipherVersion = '2.1.0'
-    
-    florianingerlRegexVersion = '1.1.11'
     webkitVersion = '1.11.0' // Latest with Android 4.4 support
     nanojsonVersion = '1.7'
     conscryptVersion = '2.5.3'
